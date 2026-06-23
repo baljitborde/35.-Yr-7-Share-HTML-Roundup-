@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Basics – Share Task</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+body { margin:0; padding:0; background:#f5f5f5; font-family:'Lato',sans-serif; font-size:14pt; color:#333333; line-height:1.65; }
+
+label.opt {
+  display:block; font-family:'Lato',sans-serif; font-size:14pt;
+  padding:13px 18px; border:2px solid #d0d0d0; border-radius:6px;
+  background:#ffffff; color:#333333; cursor:pointer; margin-bottom:10px;
+  line-height:1.4; user-select:none; -webkit-user-select:none;
+}
+label.opt:hover { background:#e3f2fd; border-color:#007BA6; }
+input[type="radio"] { position:absolute; opacity:0; width:0; height:0; pointer-events:none; }
+
+/* correct = c */
+#q1_a:checked ~ .opts label.opt,
+#q1_b:checked ~ .opts label.opt,
+#q1_c:checked ~ .opts label.opt,
+#q1_d:checked ~ .opts label.opt { pointer-events:none; cursor:default; }
+
+#q1_c:checked ~ .opts label[for="q1_c"] { background:#e8f5e9; border-color:#388e3c; color:#1b5e20; font-weight:700; }
+#q1_c:checked ~ .opts .fb-ok  { display:block; }
+
+#q1_a:checked ~ .opts label[for="q1_a"] { background:#ffebee; border-color:#C62828; color:#7f0000; }
+#q1_a:checked ~ .opts label[for="q1_c"] { background:#e8f5e9; border-color:#388e3c; color:#1b5e20; font-weight:700; }
+#q1_a:checked ~ .opts .fb-a   { display:block; }
+
+#q1_b:checked ~ .opts label[for="q1_b"] { background:#ffebee; border-color:#C62828; color:#7f0000; }
+#q1_b:checked ~ .opts label[for="q1_c"] { background:#e8f5e9; border-color:#388e3c; color:#1b5e20; font-weight:700; }
+#q1_b:checked ~ .opts .fb-b   { display:block; }
+
+#q1_d:checked ~ .opts label[for="q1_d"] { background:#ffebee; border-color:#C62828; color:#7f0000; }
+#q1_d:checked ~ .opts label[for="q1_c"] { background:#e8f5e9; border-color:#388e3c; color:#1b5e20; font-weight:700; }
+#q1_d:checked ~ .opts .fb-d   { display:block; }
+
+.fb { display:none; font-family:'Lato',sans-serif; font-size:14pt; line-height:1.65; padding:14px 18px; border-radius:6px; margin-top:14px; }
+.fb-ok  { background:#e8f5e9; color:#1b5e20; border:1px solid #81c784; }
+.fb-bad { background:#ffebee; color:#7f0000; border:1px solid #ef9a9a; }
+</style>
+</head>
+<body>
+<div style="max-width:820px;margin:0 auto;padding:0 0 60px;">
+
+  <!-- HEADER BANNER -->
+  <div style="background:#007BA6;padding:28px 36px 24px;">
+    <div style="font-family:'Lato',sans-serif;font-size:20pt;font-weight:700;color:#ffffff;margin:0 0 4px;">HTML Basics &mdash; Share Task</div>
+    <div style="font-family:'Lato',sans-serif;font-size:13pt;color:rgba(255,255,255,0.88);">Year 7 Computer Science</div>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+      <span style="background:rgba(255,255,255,0.2);color:#fff;font-family:'Lato',sans-serif;font-size:11pt;font-weight:700;padding:4px 14px;border-radius:20px;">&#9679; ~5 minutes</span>
+      <span style="background:rgba(255,255,255,0.2);color:#fff;font-family:'Lato',sans-serif;font-size:11pt;font-weight:700;padding:4px 14px;border-radius:20px;">&#9679; 1 question</span>
+    </div>
+  </div>
+
+  <div style="padding:32px 36px 0;">
+
+    <!-- TASK INSTRUCTION -->
+    <div style="border-left:4px solid #007BA6;background:#e3f2fd;padding:14px 18px;border-radius:0 6px 6px 0;margin-bottom:28px;">
+      <div style="font-family:'Lato',sans-serif;font-size:11pt;font-weight:700;color:#007BA6;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;">&#128065; Your task</div>
+      <p style="font-family:'Lato',sans-serif;font-size:14pt;color:#0d47a1;line-height:1.6;margin:0;">A student has written an HTML page, but their code contains <strong>three errors</strong>. Study the code carefully, identify all three mistakes, then select the answer below that correctly lists them all.</p>
+    </div>
+
+    <!-- CODE BLOCK -->
+    <div style="background:#ffffff;border:1px solid #d0d0d0;border-radius:6px;padding:18px 22px;margin-bottom:24px;">
+      <div style="font-family:'Lato',sans-serif;font-size:11pt;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#007BA6;margin-bottom:12px;">&#128196; Student's code</div>
+      <div style="background:#1e1e2e;border-radius:6px;padding:20px 26px;overflow-x:auto;">
+        <code style="font-family:'Courier New',Courier,monospace;font-size:13pt;line-height:2.1;color:#cdd6f4;white-space:pre;display:block;"><span style="color:#89b4fa;">&lt;html&gt;</span>
+  <span style="color:#89b4fa;">&lt;head&gt;</span>
+    <span style="color:#89b4fa;">&lt;style&gt;</span>
+      <span style="color:#a6e3a1;">body</span> {
+        <span style="color:#fab387;">background-color</span>: lightblue;
+        <span style="color:#fab387;">font-family</span>: Arial;
+      }
+    <span style="color:#89b4fa;">&lt;/style&gt;</span>
+  <span style="color:#89b4fa;">&lt;/head&gt;</span>
+  <span style="color:#89b4fa;">&lt;body&gt;</span>
+
+    <span style="color:#f38ba8;text-decoration:underline wavy #ff6b6b;">&lt;h3&gt;</span>Welcome to My Page<span style="color:#f38ba8;text-decoration:underline wavy #ff6b6b;">&lt;/h1&gt;</span>
+
+    <span style="color:#89dceb;">&lt;img</span> <span style="color:#a6e3a1;">src</span>=<span style="color:#f38ba8;">"photo.jpg"</span><span style="color:#89dceb;">&gt;</span>
+
+    <span style="color:#f38ba8;text-decoration:underline wavy #ff6b6b;">&lt;h2&gt;</span>About Me<span style="color:#89b4fa;">&lt;/h2&gt;</span>
+    <span style="color:#89dceb;">&lt;p&gt;</span>I love coding!<span style="color:#89dceb;">&lt;/p&gt;</span>
+
+  <span style="color:#89b4fa;">&lt;/body&gt;</span>
+<span style="color:#89b4fa;">&lt;/html&gt;</span></code>
+      </div>
+      <div style="margin-top:14px;font-family:'Lato',sans-serif;font-size:12pt;color:#555;line-height:1.6;">
+        <strong style="color:#007BA6;">Tip:</strong> Look carefully at the heading tags, the image tag, and how opening and closing tags must match. Think back to what you learned in the pre-learning task.
+      </div>
+    </div>
+
+    <!-- WHAT IT SHOULD DO -->
+    <div style="background:#ffffff;border:1px solid #d0d0d0;border-radius:6px;padding:16px 22px;margin-bottom:28px;">
+      <div style="font-family:'Lato',sans-serif;font-size:11pt;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#007BA6;margin-bottom:10px;">&#127919; What this page is trying to show</div>
+      <p style="font-family:'Lato',sans-serif;font-size:13pt;color:#333;margin:0 0 12px;">The student wants a page with a <strong>light blue background</strong> in Arial font, an <strong>&lt;h3&gt; heading</strong> saying "Welcome to My Page", a <strong>photo</strong>, and an <strong>&lt;h2&gt;</strong> sub-heading. If corrected it would look like this:</p>
+      <div style="background:lightblue;border-radius:6px;padding:16px 20px;font-family:Arial,sans-serif;">
+        <h3 style="margin:0 0 8px;font-size:16pt;">Welcome to My Page</h3>
+        <div style="background:#ccc;border-radius:4px;width:80px;height:55px;display:flex;align-items:center;justify-content:center;font-size:10pt;color:#555;margin-bottom:8px;">photo.jpg</div>
+        <h2 style="margin:0 0 6px;font-size:18pt;">About Me</h2>
+        <p style="margin:0;font-size:13pt;">I love coding!</p>
+      </div>
+    </div>
+
+    <!-- QUESTION -->
+    <div style="background:#fafafa;border:1px solid #d0d0d0;border-radius:6px;padding:20px 24px;">
+      <div style="font-family:'Lato',sans-serif;font-size:11pt;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#007BA6;margin-bottom:10px;">&#10003; Select your answer</div>
+      <div style="font-family:'Lato',sans-serif;font-size:15pt;font-weight:700;color:#333333;margin-bottom:18px;line-height:1.4;">Which answer correctly identifies <strong>all three errors</strong> in the student's code?</div>
+
+      <input type="radio" id="q1_a" name="q1">
+      <input type="radio" id="q1_b" name="q1">
+      <input type="radio" id="q1_c" name="q1">
+      <input type="radio" id="q1_d" name="q1">
+
+      <div class="opts">
+        <label for="q1_a" class="opt">
+          <strong>A.</strong> The <code style="font-family:'Courier New',monospace;">&lt;style&gt;</code> tag is in the wrong place &mdash; the closing heading tag <code style="font-family:'Courier New',monospace;">&lt;/h1&gt;</code> doesn't match the opening <code style="font-family:'Courier New',monospace;">&lt;h3&gt;</code> &mdash; the <code style="font-family:'Courier New',monospace;">&lt;img&gt;</code> tag is missing its <code style="font-family:'Courier New',monospace;">src</code> attribute
+        </label>
+        <label for="q1_b" class="opt">
+          <strong>B.</strong> The <code style="font-family:'Courier New',monospace;">background-color</code> property is spelt wrong &mdash; the closing heading tag <code style="font-family:'Courier New',monospace;">&lt;/h1&gt;</code> doesn't match the opening <code style="font-family:'Courier New',monospace;">&lt;h3&gt;</code> &mdash; the <code style="font-family:'Courier New',monospace;">&lt;img&gt;</code> tag is missing its <code style="font-family:'Courier New',monospace;">alt</code> attribute
+        </label>
+        <label for="q1_c" class="opt">
+          <strong>C.</strong> The closing heading tag <code style="font-family:'Courier New',monospace;">&lt;/h1&gt;</code> doesn't match the opening <code style="font-family:'Courier New',monospace;">&lt;h3&gt;</code> &mdash; the <code style="font-family:'Courier New',monospace;">&lt;img&gt;</code> tag is missing its <code style="font-family:'Courier New',monospace;">alt</code> attribute &mdash; the <code style="font-family:'Courier New',monospace;">&lt;h2&gt;</code> tag is missing its opening <code style="font-family:'Courier New',monospace;">&lt;</code> bracket
+        </label>
+        <label for="q1_d" class="opt">
+          <strong>D.</strong> The <code style="font-family:'Courier New',monospace;">&lt;style&gt;</code> tag should be in the <code style="font-family:'Courier New',monospace;">&lt;body&gt;</code> &mdash; the <code style="font-family:'Courier New',monospace;">&lt;img&gt;</code> tag is missing its <code style="font-family:'Courier New',monospace;">alt</code> attribute &mdash; the <code style="font-family:'Courier New',monospace;">&lt;h2&gt;</code> closing tag is missing
+        </label>
+
+        <!-- Feedback -->
+        <div class="fb fb-ok">
+          &#10003; <strong>Correct &mdash; well spotted!</strong> There are exactly three errors:
+          <ol style="margin:10px 0 0 0;padding-left:1.4em;line-height:2.1;">
+            <li>The closing tag <code style="font-family:'Courier New',monospace;">&lt;/h1&gt;</code> does <strong>not match</strong> the opening tag <code style="font-family:'Courier New',monospace;">&lt;h3&gt;</code> &mdash; it should be <code style="font-family:'Courier New',monospace;">&lt;/h3&gt;</code></li>
+            <li>The <code style="font-family:'Courier New',monospace;">&lt;img&gt;</code> tag is missing its <code style="font-family:'Courier New',monospace;">alt</code> attribute &mdash; it should read <code style="font-family:'Courier New',monospace;">&lt;img src="photo.jpg" alt="description"&gt;</code></li>
+            <li>The <code style="font-family:'Courier New',monospace;">&lt;h2&gt;</code> is missing its opening <code style="font-family:'Courier New',monospace;">&lt;</code> bracket &mdash; it is written as <code style="font-family:'Courier New',monospace;">h2&gt;</code> instead of <code style="font-family:'Courier New',monospace;">&lt;h2&gt;</code></li>
+          </ol>
+          <div style="margin-top:12px;background:#1e1e2e;border-radius:6px;padding:12px 18px;">
+            <div style="font-family:'Lato',sans-serif;font-size:11pt;color:#6c7086;margin-bottom:6px;">The three corrected lines:</div>
+            <code style="font-family:'Courier New',Courier,monospace;font-size:12pt;color:#cdd6f4;white-space:pre;display:block;"><span style="color:#89b4fa;">&lt;h3&gt;</span>Welcome to My Page<span style="color:#a6e3a1;">&lt;/h3&gt;</span>
+<span style="color:#89dceb;">&lt;img</span> <span style="color:#a6e3a1;">src</span>=<span style="color:#f38ba8;">"photo.jpg"</span> <span style="color:#a6e3a1;">alt</span>=<span style="color:#f38ba8;">"A photo"</span><span style="color:#89dceb;">&gt;</span>
+<span style="color:#a6e3a1;">&lt;h2&gt;</span>About Me<span style="color:#89b4fa;">&lt;/h2&gt;</span></code>
+          </div>
+        </div>
+
+        <div class="fb fb-bad fb-a">
+          &#10007; <strong>Not quite.</strong> The <code style="font-family:'Courier New',monospace;">&lt;style&gt;</code> tag is actually in the <em>correct</em> place &mdash; it belongs inside <code style="font-family:'Courier New',monospace;">&lt;head&gt;</code>. Also, the <code style="font-family:'Courier New',monospace;">&lt;img&gt;</code> tag does have a <code style="font-family:'Courier New',monospace;">src</code> attribute. Look more carefully at the <code style="font-family:'Courier New',monospace;">&lt;img&gt;</code> tag &mdash; what is it <em>missing</em>? And check the <code style="font-family:'Courier New',monospace;">&lt;h2&gt;</code> line very closely.
+        </div>
+
+        <div class="fb fb-bad fb-b">
+          &#10007; <strong>Not quite.</strong> <code style="font-family:'Courier New',monospace;">background-color</code> is spelt correctly &mdash; that is not an error. You correctly spotted the mismatched <code style="font-family:'Courier New',monospace;">&lt;/h1&gt;</code> tag and the missing <code style="font-family:'Courier New',monospace;">alt</code> attribute, but the third error is different. Look very carefully at the <code style="font-family:'Courier New',monospace;">&lt;h2&gt;</code> opening tag character by character.
+        </div>
+
+        <div class="fb fb-bad fb-d">
+          &#10007; <strong>Not quite.</strong> The <code style="font-family:'Courier New',monospace;">&lt;style&gt;</code> tag is in the <em>correct</em> place &mdash; it belongs inside the <code style="font-family:'Courier New',monospace;">&lt;head&gt;</code>. Also, the <code style="font-family:'Courier New',monospace;">&lt;h2&gt;</code> <em>does</em> have a closing tag. You correctly spotted the missing <code style="font-family:'Courier New',monospace;">alt</code> attribute, but look again at the <code style="font-family:'Courier New',monospace;">&lt;h3&gt;</code> heading and the <code style="font-family:'Courier New',monospace;">&lt;h2&gt;</code> opening tag.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /padding -->
+</div><!-- /max-width -->
+</body>
+</html>
